@@ -1,0 +1,55 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the tbl_warehouse_stock database table.
+ * 
+ */
+@Entity
+@Table(name="tbl_warehouse_stock")
+@NamedQuery(name="TblWarehouseStock.findAll", query="SELECT t FROM TblWarehouseStock t")
+public class TblWarehouseStock implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private TblWarehouseStockPK id;
+
+	@Column(name="free_quantity")
+	private int freeQuantity;
+
+	//uni-directional many-to-one association to TblMSupplier
+	@ManyToOne
+	@JoinColumn(name="agent_cd")
+	private TblMSupplier tblMSupplier;
+
+	public TblWarehouseStock() {
+	}
+
+	public TblWarehouseStockPK getId() {
+		return this.id;
+	}
+
+	public void setId(TblWarehouseStockPK id) {
+		this.id = id;
+	}
+
+	public int getFreeQuantity() {
+		return this.freeQuantity;
+	}
+
+	public void setFreeQuantity(int freeQuantity) {
+		this.freeQuantity = freeQuantity;
+	}
+
+	public TblMSupplier getTblMSupplier() {
+		return this.tblMSupplier;
+	}
+
+	public void setTblMSupplier(TblMSupplier tblMSupplier) {
+		this.tblMSupplier = tblMSupplier;
+	}
+
+}

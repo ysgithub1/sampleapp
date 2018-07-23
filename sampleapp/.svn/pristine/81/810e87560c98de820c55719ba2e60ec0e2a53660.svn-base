@@ -1,0 +1,76 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The primary key class for the tbl_result_order_management database table.
+ * 
+ */
+@Embeddable
+public class TblResultOrderManagementPK implements Serializable {
+	//default serial version id, required for serializable classes.
+	private static final long serialVersionUID = 1L;
+
+	private String timestamp;
+
+	private int user;
+
+	@Column(name="order_no")
+	private String orderNo;
+
+	private int jurisdiction;
+
+	public TblResultOrderManagementPK() {
+	}
+	public String getTimestamp() {
+		return this.timestamp;
+	}
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+	public int getUser() {
+		return this.user;
+	}
+	public void setUser(int user) {
+		this.user = user;
+	}
+	public String getOrderNo() {
+		return this.orderNo;
+	}
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+	public int getJurisdiction() {
+		return this.jurisdiction;
+	}
+	public void setJurisdiction(int jurisdiction) {
+		this.jurisdiction = jurisdiction;
+	}
+
+	public boolean equals(Object other) {
+		if (this == other) {
+			return true;
+		}
+		if (!(other instanceof TblResultOrderManagementPK)) {
+			return false;
+		}
+		TblResultOrderManagementPK castOther = (TblResultOrderManagementPK)other;
+		return 
+			this.timestamp.equals(castOther.timestamp)
+			&& (this.user == castOther.user)
+			&& this.orderNo.equals(castOther.orderNo)
+			&& (this.jurisdiction == castOther.jurisdiction);
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int hash = 17;
+		hash = hash * prime + this.timestamp.hashCode();
+		hash = hash * prime + this.user;
+		hash = hash * prime + this.orderNo.hashCode();
+		hash = hash * prime + this.jurisdiction;
+		
+		return hash;
+	}
+}

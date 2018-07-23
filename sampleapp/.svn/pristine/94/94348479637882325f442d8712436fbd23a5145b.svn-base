@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="sampleapp">
+		<class>model.User</class>
+		<class>model.TblResult</class>
+		<class>model.TblResultPK</class>
+		<class>model.TblOrder</class>
+		<class>model.TblOrderPK</class>
+		<class>model.TblProduct</class>
+		<class>model.TblMSupplier</class>
+		<class>model.TblMCode</class>
+		<class>model.TblMCodePK</class>
+		<class>model.TblMCodeType</class>
+		<class>model.TblResultOrderManagement</class>
+		<class>model.TblResultOrderManagementPK</class>
+		<class>model.TblResultOrderLineItem</class>
+		<class>model.TblResultOrderLineItemPK</class>
+		<class>model.TblResultStock</class>
+		<class>model.TblResultStockPK</class>
+		<class>model.TblStock</class>
+		<class>model.TblStockPK</class>
+	</persistence-unit>
+</persistence>

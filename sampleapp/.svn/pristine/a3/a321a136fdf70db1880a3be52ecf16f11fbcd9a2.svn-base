@@ -1,0 +1,8 @@
+package struct;
+
+public class Struct {
+	public int jurisdiction;
+	public String agentCd;
+	public String productCd;
+	public String size;
+}

@@ -1,0 +1,42 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the tbl_result_order_line_item database table.
+ * 
+ */
+@Entity
+@Table(name="tbl_result_order_line_item")
+@NamedQuery(name="TblResultOrderLineItem.findAll", query="SELECT t FROM TblResultOrderLineItem t")
+public class TblResultOrderLineItem implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private TblResultOrderLineItemPK id;
+
+	@Column(name="reserved_quantity")
+	private int reservedQuantity;
+
+	public TblResultOrderLineItem() {
+	}
+
+	public TblResultOrderLineItemPK getId() {
+		return this.id;
+	}
+
+	public void setId(TblResultOrderLineItemPK id) {
+		this.id = id;
+	}
+
+	public int getReservedQuantity() {
+		return this.reservedQuantity;
+	}
+
+	public void setReservedQuantity(int reservedQuantity) {
+		this.reservedQuantity = reservedQuantity;
+	}
+
+}

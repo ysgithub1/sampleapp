@@ -1,0 +1,67 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The primary key class for the tbl_warehouse_stock database table.
+ * 
+ */
+@Embeddable
+public class TblWarehouseStockPK implements Serializable {
+	//default serial version id, required for serializable classes.
+	private static final long serialVersionUID = 1L;
+
+	private int jurisdiction;
+
+	@Column(name="warehouse_cd", insertable=false, updatable=false)
+	private String warehouseCd;
+
+	@Column(name="product_cd", insertable=false, updatable=false)
+	private String productCd;
+
+	public TblWarehouseStockPK() {
+	}
+	public int getJurisdiction() {
+		return this.jurisdiction;
+	}
+	public void setJurisdiction(int jurisdiction) {
+		this.jurisdiction = jurisdiction;
+	}
+	public String getWarehouseCd() {
+		return this.warehouseCd;
+	}
+	public void setWarehouseCd(String warehouseCd) {
+		this.warehouseCd = warehouseCd;
+	}
+	public String getProductCd() {
+		return this.productCd;
+	}
+	public void setProductCd(String productCd) {
+		this.productCd = productCd;
+	}
+
+	public boolean equals(Object other) {
+		if (this == other) {
+			return true;
+		}
+		if (!(other instanceof TblWarehouseStockPK)) {
+			return false;
+		}
+		TblWarehouseStockPK castOther = (TblWarehouseStockPK)other;
+		return 
+			(this.jurisdiction == castOther.jurisdiction)
+			&& this.warehouseCd.equals(castOther.warehouseCd)
+			&& this.productCd.equals(castOther.productCd);
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int hash = 17;
+		hash = hash * prime + this.jurisdiction;
+		hash = hash * prime + this.warehouseCd.hashCode();
+		hash = hash * prime + this.productCd.hashCode();
+		
+		return hash;
+	}
+}
